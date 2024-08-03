@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemento DOM exemplo5</title>
+</head>
+<body>
+    <h1>Usando Elemento do Dom</h1>
+    <ul>
+        <li>Java</li>
+        <li>Phyton</li>
+        <li>NodeJS</li>
+    </ul>
+   <div id="conteudo" name="divconteudo" class="mensagem">
+        
+   </div> 
+   <div name="divconteudo" class="mensagem">
+    
+    </div> 
+   <div name="divconteudo" class="mensagem">
+
+   </div>
+
+   <span id="novospan" class="novo">
+        Eae texto aqui 
+
+   </span>
+
+   <div class="mensagem "> 
+        <h1>Este e o Texto</h1>
+   </div>
+    
+</body>
+    <script>
+        elemento0 = document.getElementsByTagName('li')[0];
+        elemento0.style.color = 'red'
+
+        elemento1 = document.getElementsByTagName('li')[1];
+        elemento1.style.background = 'green'
+
+        elemento2 = document.getElementsByTagName("li")[2];
+        elemento2.innerText = "Você mudou meu chapa"
+
+        elementoDiv = document.getElementById("conteudo");
+        elementoDiv.innerHTML= "<p> Estou colocando a tag p dentro do div</p>"
+
+        elementoDivName = document.getElementsByName('divconteudo')[1];
+        elementoDivName.style.color = "purple"
+        elementoDivName.innerText = "Estou a colocar um texto"
+
+        elementoDivClass = document.getElementsByClassName("mensagem")[2];
+        elementoDivClass.innerHTML= "<p> Estou colocando a tag p dentro do div 2 </p>"
+
+        elementoSpamClass = document.querySelector("#novospan");
+        elementoSpamClass.style.color = "purple";
+        elementoSpamClass.style.background = "red";
+
+        elementoSeletor = document.querySelectorAll(".mensagem")[3]
+        elementoSeletor.innerHTML = "<h1> Mudando Geral </h1>"
+
+        
+        
+    </script>
+
+</html>
