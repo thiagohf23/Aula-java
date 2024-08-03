@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja Virtual</title>
+    <style>
+      .result-item {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Loja Virtual</h1>
+    <input type="text" id="categoriaInput" placeholder="Digite a categoria" />
+    <button onclick="filtrarPorCategoria()">Pesquisar</button>
+    <div id="resultados"></div>
+    <script>
+      // Classe Objeto
+      class Objeto {
+        constructor(nome, descricao, categoria, preco) {
+          this.nome = nome;
+          this.descricao = descricao;
+          this.categoria = categoria;
+          this.preco = preco;
+        }
+      }
+
+      // Lista de objetos
+      const objetos = [
+        new Objeto("Sansung A71", "Celular para games", "Eletrônico", 1500),
+        new Objeto("Sansung TAB G21", "Tablet para estudo", "Eletrônico", 2100),
+        new Objeto(
+          "Fogão 4 bocas",
+          "Fogão para alimentação saudável",
+          "Eletrodoméstico",
+          1600
+        ),
+        new Objeto(
+          "Geladeira e Freezer",
+          "Congela rápido",
+          "Eletrodoméstico",
+          4000
+        ),
+        new Objeto("Air Fryer", "Agiliza seu dia", "Eletrodoméstico", 950),
+      ];
+
+      // Função para filtrar por categoria
+      function filtrarPorCategoria() {
+        // Obter o valor digitado pelo usuário
+        const categoria = document
+          .getElementById("categoriaInput")
+          .value.trim();
+
+        // Limpar a lista de resultados anterior
+        const resultadosDiv = document.getElementById("resultados");
+        resultadosDiv.innerHTML = "";
+
+        // Filtrar a lista de objetos com base na categoria informada
+        const objetosFiltrados = objetos.filter(
+          (obj) => obj.categoria.toLowerCase() === categoria.toLowerCase()
+        );
+
+        // Se não houver objetos correspondentes, exibir a mensagem
+        if (objetosFiltrados.length === 0) {
+          resultadosDiv.innerHTML =
+            "<p>Nenhum objeto encontrado para a categoria informada.</p>";
+        } else {
+          // Exibir os objetos correspondentes na lista de resultados
+          objetosFiltrados.forEach((obj) => {
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "result-item";
+            itemDiv.innerHTML = `
+            <h2>${obj.nome}</h2>
+            <p><strong>Descrição:</strong> ${obj.descricao}</p>
+            <p><strong>Categoria:</strong> ${obj.categoria}</p>
+            <p><strong>Preço:</strong> R$ ${obj.preco}</p>
+          `;
+            resultadosDiv.appendChild(itemDiv);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

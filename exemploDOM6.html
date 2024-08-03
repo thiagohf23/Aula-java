@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudando DOM 6</title>
+  </head>
+  <body>
+    <form>
+      <label>Email</label>
+      <input type="email" id="email" />
+      <label>Nome</label>
+      <input type="text" id="name" />
+      <button type="submit" onclick="novoItem()">Cadastrar</button>
+    </form>
+    <script>
+      function novoItem() {
+        var camponome = document.getElementById("name");
+        alert("Seu nome é: " + camponome.value);
+      }
+    </script>
+  </body>
+</html>
